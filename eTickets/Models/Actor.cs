@@ -11,5 +11,10 @@ namespace eTickets.Models
         public string? FullName { get; set; }
         public string? Bio { get; set; }
 
+        //Calling the specific classes for each property to show their relationships to each
+
+        //Relationships
+        public List<Actor_Movie>? Actor_Movies { get; set; }
+
     }
 }
