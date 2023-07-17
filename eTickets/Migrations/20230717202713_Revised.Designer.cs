@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eTickets.Data;
 
@@ -11,9 +12,11 @@ using eTickets.Data;
 namespace eTickets.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230717202713_Revised")]
+    partial class Revised
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,9 +55,12 @@ namespace eTickets.Migrations
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
 
+                    b.Property<int>("ActorId1")
+                        .HasColumnType("int");
+
                     b.HasKey("ActorId", "MovieId");
 
-                    b.HasIndex("MovieId");
+                    b.HasIndex("ActorId1");
 
                     b.ToTable("Actors_Movies");
                 });
@@ -146,15 +152,15 @@ namespace eTickets.Migrations
 
             modelBuilder.Entity("eTickets.Models.Actor_Movie", b =>
                 {
-                    b.HasOne("eTickets.Models.Actor", "Actor")
+                    b.HasOne("eTickets.Models.Movie", "Movie")
                         .WithMany("Actor_Movies")
                         .HasForeignKey("ActorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("eTickets.Models.Movie", "Movie")
+                    b.HasOne("eTickets.Models.Actor", "Actor")
                         .WithMany("Actor_Movies")
-                        .HasForeignKey("MovieId")
+                        .HasForeignKey("ActorId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

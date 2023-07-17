@@ -25,7 +25,7 @@ namespace eTickets.Data
 
             // Creating database relationship connection for Actor Movies
             modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Movie).WithMany(am => am.Actor_Movies).HasForeignKey(m => m.MovieId);
-            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Movie).WithMany(am => am.Actor_Movies).HasForeignKey(m => m.ActorId);
+            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Actor).WithMany(am => am.Actor_Movies).HasForeignKey(m => m.ActorId);
 
             // calls same method in base class, which allows it to execute its default behavior before any additional custom mods are made in the AppDbContext class
             base.OnModelCreating(modelBuilder);
@@ -37,8 +37,6 @@ namespace eTickets.Data
         public DbSet<Actor_Movie> Actors_Movies { get; set; }
         public DbSet<Cinema> Cinemas { get; set; }
         public DbSet<Producer> Producers { get; set; }
-
-
 
     }
 
