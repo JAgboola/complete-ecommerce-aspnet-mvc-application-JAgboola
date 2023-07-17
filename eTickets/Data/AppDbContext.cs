@@ -14,7 +14,7 @@ namespace eTickets.Data
 
         }
 
-        //override of method in base class to provide custom behavior specifc to AppDbContext class
+        //override of method in base class to provide custom behavior specific to AppDbContext class
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Actor_Movie>().HasKey(am => new
