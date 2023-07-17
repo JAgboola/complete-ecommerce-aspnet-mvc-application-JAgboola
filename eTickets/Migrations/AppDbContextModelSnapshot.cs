@@ -52,12 +52,9 @@ namespace eTickets.Migrations
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ActorId1")
-                        .HasColumnType("int");
-
                     b.HasKey("ActorId", "MovieId");
 
-                    b.HasIndex("ActorId1");
+                    b.HasIndex("ActorId");
 
                     b.ToTable("Actors_Movies");
                 });
@@ -157,7 +154,7 @@ namespace eTickets.Migrations
 
                     b.HasOne("eTickets.Models.Actor", "Actor")
                         .WithMany("Actor_Movies")
-                        .HasForeignKey("ActorId1")
+                        .HasForeignKey("ActorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

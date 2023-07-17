@@ -91,8 +91,7 @@ namespace eTickets.Migrations
                 columns: table => new
                 {
                     MovieId = table.Column<int>(type: "int", nullable: false),
-                    ActorId = table.Column<int>(type: "int", nullable: false),
-                    ActorId1 = table.Column<int>(type: "int", nullable: false)
+                    ActorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -106,9 +105,9 @@ namespace eTickets.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Actors_Movies_ActorId1",
+                name: "IX_Actors_Movies_ActorId",
                 table: "Actors_Movies",
-                column: "ActorId1");
+                column: "ActorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Movies_CinemaId",
