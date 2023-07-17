@@ -31,7 +31,7 @@ namespace eTickets.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        //data table names for each model
+        //datatable names for each model
         public DbSet <Actor> Actors { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Actor_Movie> Actors_Movies { get; set; }
